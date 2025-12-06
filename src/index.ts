@@ -5,7 +5,7 @@
  * 
  * @example
  * ```typescript
- * import { XRpcClient } from '@xrpc/sdk';
+ * import { XRpcClient } from '@xrpc-pro/sdk';
  * 
  * const client = new XRpcClient({
  *   apiKey: 'your-api-key',

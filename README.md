@@ -2,7 +2,7 @@
 
 Official JavaScript/TypeScript SDK for xRPC - Multi-chain RPC Gateway.
 
-[![npm version](https://img.shields.io/npm/v/@xrpc/sdk.svg)](https://www.npmjs.com/package/@xrpc/sdk)
+[![npm version](https://img.shields.io/npm/v/@xrpc-pro/sdk.svg)](https://www.npmjs.com/package/@xrpc-pro/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -20,17 +20,17 @@ Official JavaScript/TypeScript SDK for xRPC - Multi-chain RPC Gateway.
 ## Installation
 
 ```bash
-npm install @xrpc/sdk
+npm install @xrpc-pro/sdk
 # or
-yarn add @xrpc/sdk
+yarn add @xrpc-pro/sdk
 # or
-pnpm add @xrpc/sdk
+pnpm add @xrpc-pro/sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { XRpcClient } from '@xrpc/sdk';
+import { XRpcClient } from '@xrpc-pro/sdk';
 
 // Initialize client
 const client = new XRpcClient({
@@ -239,7 +239,7 @@ results.forEach((response) => {
 Use the extended client for common operations:
 
 ```typescript
-import { XRpcClientExtended } from '@xrpc/sdk';
+import { XRpcClientExtended } from '@xrpc-pro/sdk';
 
 const client = new XRpcClientExtended({
   apiKey: 'your-api-key',
@@ -282,7 +282,7 @@ const logs = await client.getLogs({
 ### Error Handling
 
 ```typescript
-import { XRpcClient, XRpcError } from '@xrpc/sdk';
+import { XRpcClient, XRpcError } from '@xrpc-pro/sdk';
 
 try {
   const { result } = await client.request('eth_blockNumber');
@@ -416,7 +416,7 @@ The SDK uses standard JSON-RPC 2.0 error codes:
 The SDK is written in TypeScript and includes full type definitions:
 
 ```typescript
-import { XRpcClient, Network, JsonRpcResponse } from '@xrpc/sdk';
+import { XRpcClient, Network, JsonRpcResponse } from '@xrpc-pro/sdk';
 
 const client = new XRpcClient({
   apiKey: 'your-api-key',
@@ -447,10 +447,10 @@ The SDK works in both Node.js and browser environments:
 
 ```typescript
 // Node.js
-import { XRpcClient } from '@xrpc/sdk';
+import { XRpcClient } from '@xrpc-pro/sdk';
 
 // Browser (via bundler like webpack, vite, etc.)
-import { XRpcClient } from '@xrpc/sdk';
+import { XRpcClient } from '@xrpc-pro/sdk';
 ```
 
 ## API Reference
@@ -525,7 +525,7 @@ MIT
 
 - **Documentation:** https://docs.xrpc.pro
 - **Support:** https://t.me/xnode_support
-- **GitHub:** https://github.com/xrpc/xrpc-sdk-js
+- **GitHub:** https://github.com/xrpcpro/xrpc-sdk-js
 
 ## Changelog
 
