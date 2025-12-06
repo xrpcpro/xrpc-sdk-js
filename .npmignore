@@ -1,0 +1,10 @@
+src/
+tsconfig.json
+rollup.config.js
+*.test.ts
+*.spec.ts
+.env*
+.gitignore
+.npmignore
+README.md
+
