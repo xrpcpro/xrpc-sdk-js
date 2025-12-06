@@ -1,5 +1,5 @@
 {
-  "name": "@xrpc/sdk",
+  "name": "@xrpc-pro/sdk",
   "version": "1.0.0",
   "description": "Official JavaScript/TypeScript SDK for xRPC - Multi-chain RPC Gateway. Supports Ethereum, Polygon, Arbitrum, Optimism, Base, and more with full TypeScript support.",
   "main": "dist/index.js",
@@ -51,11 +51,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xrpc/xrpc-sdk-js.git"
+    "url": "https://github.com/xrpcpro/xrpc-sdk-js.git"
   },
   "homepage": "https://app.xrpc.pro/docs",
   "bugs": {
-    "url": "https://github.com/xrpc/xrpc-sdk-js/issues"
+    "url": "https://github.com/xrpcpro/xrpc-sdk-js/issues"
   },
   "engines": {
     "node": ">=14.0.0"
