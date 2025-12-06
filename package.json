@@ -1,6 +1,6 @@
 {
   "name": "@xrpc-pro/sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official JavaScript/TypeScript SDK for xRPC - Multi-chain RPC Gateway. Supports Ethereum, Polygon, Arbitrum, Optimism, Base, and more with full TypeScript support.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
