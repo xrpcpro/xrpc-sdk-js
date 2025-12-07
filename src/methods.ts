@@ -4,7 +4,7 @@
  */
 
 import { XRpcClient } from './client';
-import { Network, RequestOptions } from './types';
+import { RequestOptions } from './types';
 
 /**
  * Extended client with convenience methods

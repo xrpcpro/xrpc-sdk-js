@@ -36,3 +36,12 @@ export type {
 // Convenience methods for common RPC calls
 export { XRpcClientExtended } from './methods';
 
+// WebSocket client for subscriptions (Premium feature)
+export { XRpcWebSocketClient } from './websocket';
+export type {
+  SubscriptionType,
+  SubscriptionOptions,
+  Subscription,
+  XRpcWebSocketClientEvents
+} from './websocket';
+

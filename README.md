@@ -234,6 +234,75 @@ results.forEach((response) => {
 });
 ```
 
+### WebSocket Subscriptions (Premium Feature)
+
+**⚠️ Premium Plan Required** - WebSocket subscriptions are available only for Premium plan users.
+
+Real-time subscriptions via WebSocket Secure (WSS) connections:
+
+```typescript
+import { XRpcWebSocketClient } from '@xrpc-pro/sdk';
+
+const wsClient = new XRpcWebSocketClient({
+  apiKey: 'your-api-key',
+  network: 'eth-mainnet', // Use base network name (not eth-mainnet-wss)
+  debug: true,
+  autoReconnect: true
+});
+
+// Event listeners
+wsClient.on('open', () => {
+  console.log('WebSocket connected');
+});
+
+wsClient.on('close', (code, reason) => {
+  console.log(`WebSocket closed: ${code} ${reason}`);
+});
+
+wsClient.on('error', (error) => {
+  console.error('WebSocket error:', error);
+});
+
+wsClient.on('reconnect', (attempt) => {
+  console.log(`Reconnecting... (attempt ${attempt})`);
+});
+
+// Connect
+await wsClient.connect();
+
+// Subscribe to new block headers
+const newHeadsSub = await wsClient.subscribeNewHeads((block) => {
+  console.log('New block:', block);
+});
+
+// Subscribe to new pending transactions
+const pendingTxSub = await wsClient.subscribeNewPendingTransactions((txHash) => {
+  console.log('New pending transaction:', txHash);
+});
+
+// Subscribe to logs
+const logsSub = await wsClient.subscribeLogs(
+  {
+    address: '0x...', // Contract address
+    topics: ['0x...'] // Event topics
+  },
+  (log) => {
+    console.log('New log:', log);
+  }
+);
+
+// Unsubscribe
+await wsClient.unsubscribe(newHeadsSub);
+
+// Disconnect
+await wsClient.disconnect();
+```
+
+**Note:** In Node.js, you need to install the `ws` package:
+```bash
+npm install ws
+```
+
 ### Convenience Methods
 
 Use the extended client for common operations:
@@ -473,6 +542,23 @@ new XRpcClient(config: XRpcConfig)
 - `setApiKey(apiKey: string): void`
 - `setDefaultNetwork(network: Network): void`
 - `getApiKey(): string`
+
+### XRpcWebSocketClient
+
+WebSocket client for real-time subscriptions (Premium feature):
+
+- `connect(): Promise<void>` - Connect to WebSocket server
+- `disconnect(): Promise<void>` - Disconnect from WebSocket server
+- `subscribeNewHeads(callback: (block: any) => void): Promise<string>` - Subscribe to new block headers
+- `subscribeNewPendingTransactions(callback: (txHash: string) => void): Promise<string>` - Subscribe to new pending transactions
+- `subscribeLogs(filter: object, callback: (log: any) => void): Promise<string>` - Subscribe to logs
+- `subscribe(type: SubscriptionType, params: any[], callback: (data: any) => void): Promise<string>` - Generic subscribe method
+- `unsubscribe(subscriptionId: string): Promise<boolean>` - Unsubscribe from a subscription
+- `getState(): 'connecting' | 'open' | 'closing' | 'closed'` - Get connection state
+- `isConnected(): boolean` - Check if connected
+- `getSubscriptions(): Subscription[]` - Get active subscriptions
+- `on(event: string, listener: Function): void` - Add event listener
+- `off(event: string, listener: Function): void` - Remove event listener
 
 ### XRpcClientExtended
 
